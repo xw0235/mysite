@@ -27,7 +27,7 @@ module.exports = function add_router (app, folder) {
     for (let name in controller) {
       let index = name.indexOf('_');
       let verb = name.slice(0, index);
-      let routerPath = `${fp.slice(folder.length).split('.')[0]}/${name.slice(index + 1)}`;
+      let routerPath = `/api${fp.slice(folder.length).split('.')[0]}/${name.slice(index + 1)}`;
       let method = controller[name];
       app[verb](routerPath, method);
     }
